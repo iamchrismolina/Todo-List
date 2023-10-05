@@ -1,9 +1,12 @@
+import Tasks from "../pages/tasks/Tasks.tsx";
+import "./main.scss";
+
 const Main = () => {
-    return (
-        <>
-            <div>Main</div>
-        </>
-    )
-}
+  return (
+    <main>
+      <Tasks />
+    </main>
+  );
+};
 
 export default Main;

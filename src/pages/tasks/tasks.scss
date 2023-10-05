@@ -1,0 +1,135 @@
+.tasks {
+    display: flex;
+    gap: 5%;
+
+
+    &__sidebar {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        max-width: 10rem;
+        flex: 1;
+        gap: 2rem 0;
+    }
+
+    &__task-list {
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;
+        min-height: 5rem;
+        max-height: 8rem;
+        gap: 1rem;
+        border: 1px solid red;
+    }
+
+    &__highlighter {
+        display: inline-block;
+        height: 100%;
+        min-width: 0.5rem;
+        background-color: #00b399;
+    }
+
+    &__icon-container {
+        min-width: 3rem;
+        display: flex;
+        justify-content: center;
+        flex-basis: 8rem;
+    }
+
+    &__task-category {
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    &__task-icon {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &__task-history {
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+        min-height: 5rem;
+        max-height: 8rem;
+        gap: 1rem;
+        border: 1px solid red;
+    }
+
+    &__history-icon {
+        width: object-fit;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &__history-category {
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+
+
+    //        TASK SECTION
+
+    &__task {
+        display: flex;
+        flex-direction: column;
+        // width: 100%;
+        gap: 2rem;
+        flex: 3;
+        // padding: 1rem;
+        height: 70vh;
+        border: 1px solid red;
+    }
+
+    &__task-input {
+        display: flex;
+        padding: 0 2rem;
+        // justify-content: space-around;
+        border: none;
+        align-items: center;
+        height: 4rem;
+        border: 2px solid #e6e6e6;
+        border-radius: 15px;
+        // gap: 5rem;
+        color: #7e7e7e;
+        position: relative;
+    }
+
+    &__add-task {
+        position: absolute;
+        right: 5rem;
+        top: 12rem;
+        cursor: pointer;
+    }
+
+    &__todos {
+        background-color: #e6e6e6;
+        height: 100%;
+        border-radius: 15px;
+        padding: 1rem;
+    }
+
+    &__todo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        height: 4rem;
+        border-radius: 15px;
+        background-color: #ffffff;
+        cursor: pointer;
+    }
+
+    &__content {
+        display: flex;
+        width: 50%;
+        gap: 1rem;
+        align-items: center;
+        font-weight: 500;
+    }
+    
+    
+}
