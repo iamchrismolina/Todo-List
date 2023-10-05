@@ -1,5 +1,5 @@
 import "./Tasks.scss";
-import Trashcan from "../../components/Trashcan.tsx";
+import Trashcan from "../../components/trashcan/Trashcan.tsx";
 import AddTask from "../../components/addtask/AddTask.tsx";
 import Checkbox from "../../components/checkbox/Checkbox.tsx";
 

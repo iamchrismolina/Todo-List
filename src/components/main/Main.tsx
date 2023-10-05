@@ -1,4 +1,4 @@
-import Tasks from "../pages/tasks/Tasks.tsx";
+import Tasks from "../../pages/tasks/Tasks.tsx";
 import "./main.scss";
 
 const Main = () => {
