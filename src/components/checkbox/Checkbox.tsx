@@ -1,10 +1,14 @@
 import "./checkbox.scss";
 
-const Checkbox = () => {
+type PropsType = {
+  id: number;
+};
+
+const Checkbox = ({ id }: PropsType) => {
   return (
     <div className="checkbox-wrapper-19">
-      <input id="cbtest-19" type="checkbox" />
-      <label className="check-box" htmlFor="cbtest-19"></label>
+      <input id={`cbtest-${id}`} type="checkbox" />
+      <label className="check-box" htmlFor={`cbtest-${id}`}></label>
     </div>
   );
 };

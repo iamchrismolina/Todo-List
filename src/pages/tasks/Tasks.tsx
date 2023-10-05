@@ -1,9 +1,33 @@
+import { useState } from "react";
+
 import "./Tasks.scss";
 import Trashcan from "../../components/trashcan/Trashcan.tsx";
 import AddTask from "../../components/addtask/AddTask.tsx";
 import Checkbox from "../../components/checkbox/Checkbox.tsx";
 
 const Tasks = () => {
+  const [inputValue, setInputValue] = useState("");
+  const [taskList, setTaskList] = useState(["DK", "Chris", "Molina"]);
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const addTask = (inputValue) => {
+    if (inputValue) {
+      console.log(taskList);
+      const updatedTaskList = [...taskList, inputValue];
+      setTaskList(updatedTaskList);
+      setInputValue("");
+      console.log(taskList);
+    }
+  };
+
+  const deleteTask = (taskIdx) => {
+    const updatedTaskList = taskList.filter((task, i) => i !== taskIdx);
+    setTaskList(updatedTaskList);
+  };
+
   return (
     <div className="tasks">
       <aside className="tasks__sidebar">
@@ -41,19 +65,33 @@ const Tasks = () => {
           type="text"
           placeholder="Enter your Task"
           name="addtask"
+          value={inputValue}
+          onChange={handleInputChange}
+          onKeyUp={(e) => (e.key === "Enter" ? addTask(inputValue) : null)}
           id="addtask"
         />
-        <span className="tasks__add-task">
+        {/*         
+                Only if you need to pass a value = anonymous function call within onClick={}
+
+          <li key={move}>
+            <button onClick={() => jumpTo(move)}>{description}</button>
+          </li>
+        */}
+        <span className="tasks__add-task" onClick={() => addTask(inputValue)}>
           <AddTask />
         </span>
         <div className="tasks__todos">
-          <div className="tasks__todo">
-            <div className="tasks__content">
-              <Checkbox />
-              <span>Task Lists</span>
+          {taskList.map((task, index) => (
+            <div key={index} className="tasks__todo">
+              <div className="tasks__content">
+                <Checkbox id={`cbtest-${index}`} />
+                <span>{task}</span>
+              </div>
+              <div onClick={() => deleteTask(index)}>
+                <Trashcan />
+              </div>
             </div>
-            <Trashcan />
-          </div>
+          ))}
         </div>
       </div>
     </div>
