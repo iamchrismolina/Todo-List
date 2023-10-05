@@ -60,26 +60,29 @@ const Tasks = () => {
       </aside>
 
       <div className="tasks__task">
-        <input
-          className="tasks__task-input"
-          type="text"
-          placeholder="Enter your Task"
-          name="addtask"
-          value={inputValue}
-          onChange={handleInputChange}
-          onKeyUp={(e) => (e.key === "Enter" ? addTask(inputValue) : null)}
-          id="addtask"
-        />
-        {/*         
+        <div className="tasks__add-container">
+          <input
+            className="tasks__task-input"
+            type="text"
+            placeholder="Enter your Task"
+            name="addtask"
+            value={inputValue}
+            onChange={handleInputChange}
+            onKeyUp={(e) => (e.key === "Enter" ? addTask(inputValue) : null)}
+            id="addtask"
+          />
+          {/*         
                 Only if you need to pass a value = anonymous function call within onClick={}
 
           <li key={move}>
             <button onClick={() => jumpTo(move)}>{description}</button>
           </li>
         */}
-        <span className="tasks__add-task" onClick={() => addTask(inputValue)}>
-          <AddTask />
-        </span>
+          <span className="tasks__add-task" onClick={() => addTask(inputValue)}>
+            <AddTask />
+          </span>
+        </div>
+
         <div className="tasks__todos">
           {taskList.map((task, index) => (
             <div key={index} className="tasks__todo">
@@ -94,6 +97,7 @@ const Tasks = () => {
           ))}
         </div>
       </div>
+      <div className="tasks__finished-tasks"></div>
     </div>
   );
 };
