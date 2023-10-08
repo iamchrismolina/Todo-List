@@ -1,22 +1,59 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Trashcan from "../../components/trashcan/Trashcan.tsx";
 import AddTask from "../../components/addtask/AddTask.tsx";
 import Checkbox from "../../components/checkbox/Checkbox.tsx";
+import useLocalStorage from "use-local-storage";
 import "./Tasks.scss";
 
 const Tasks = () => {
   const [inputValue, setInputValue] = useState("");
-  const [taskList, setTaskList] = useState([
-    "Liam",
-    "Olivia",
-    "Noah",
-    "Emma",
-    "Oliver",
-  ]);
+  // const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useLocalStorage("taskList", []);
+  // const [tasksCount, setTasksCount] = useState(0);
+  const [tasksCount, setTasksCount] = useLocalStorage(
+    "tasksCountDeserialized",
+    0
+  );
 
   const todoRefs = useRef([]);
 
-  const [tasksCount, setTasksCount] = useState(0);
+  // Todo Lists
+  useEffect(() => {
+    setTaskList(taskList);
+  }, [taskList]);
+
+  // Finished Tasks
+  useEffect(() => {
+    setTasksCount(tasksCount);
+  }, []);
+
+  // Tasks Finished (Local Storage)
+  /*   useEffect(() => {
+    const tasksCountDeserialized = localStorage.getItem("tasksCountSerialized");
+    if (tasksCountDeserialized) {
+      setTasksCount((prevValue) => (prevValue ? tasksCountDeserialized : 0));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasksCountSerialized", JSON.stringify(tasksCount));
+  }, [tasksCount]); */
+
+  // Todo Lists (Local Storage)
+  /*   useEffect(() => {
+    const data = window.localStorage.getItem("taskList");
+    console.log("data " + data);
+    if (data) {
+      setTaskList(JSON.parse(data));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("taskList", JSON.stringify(taskList));
+    console.log("taskList " + taskList);
+  }, [taskList]); */
+
+  // Retrieving data from localStorage
 
   // Check Tasks Total
   const tasks = taskList.length;
@@ -111,6 +148,7 @@ const Tasks = () => {
           ))}
         </div>
       </div>
+
       <div className="tasks__finished-tasks">
         <div className="tasks__score-title">Tasks Finished</div>
         <div>
