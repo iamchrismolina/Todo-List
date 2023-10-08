@@ -18,7 +18,6 @@ const deleteTask = ({
   todoRefs[taskIdx][0]?.classList.remove("check-box-green");
   const updatedTaskList = taskList.filter((task, i) => i !== taskIdx);
   setTaskList(updatedTaskList);
-  console.log(todoRefs[taskIdx]);
 };
 
 type PropsType = {

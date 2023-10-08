@@ -1,31 +1,43 @@
-import { useState } from "react";
-
-import "./Tasks.scss";
+import { useState, useRef } from "react";
 import Trashcan from "../../components/trashcan/Trashcan.tsx";
 import AddTask from "../../components/addtask/AddTask.tsx";
 import Checkbox from "../../components/checkbox/Checkbox.tsx";
+import "./Tasks.scss";
 
 const Tasks = () => {
   const [inputValue, setInputValue] = useState("");
-  const [taskList, setTaskList] = useState(["DK", "Chris", "Molina"]);
+  const [taskList, setTaskList] = useState([
+    "Liam",
+    "Olivia",
+    "Noah",
+    "Emma",
+    "Oliver",
+  ]);
 
+  const todoRefs = useRef([]);
+
+  const [tasksCount, setTasksCount] = useState(0);
+
+  // Check Tasks Total
+  const tasks = taskList.length;
+  if (tasks === 0) {
+    setTimeout(() => {
+      setTaskList(["Ready For Some New Tasks? :D"]);
+    }, 1000);
+  }
+
+  // Handle User Input
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
+  // Handle Add Task
   const addTask = (inputValue) => {
     if (inputValue) {
-      console.log(taskList);
       const updatedTaskList = [...taskList, inputValue];
       setTaskList(updatedTaskList);
       setInputValue("");
-      console.log(taskList);
     }
-  };
-
-  const deleteTask = (taskIdx) => {
-    const updatedTaskList = taskList.filter((task, i) => i !== taskIdx);
-    setTaskList(updatedTaskList);
   };
 
   return (
@@ -71,33 +83,49 @@ const Tasks = () => {
             onKeyUp={(e) => (e.key === "Enter" ? addTask(inputValue) : null)}
             id="addtask"
           />
-          {/*         
-                Only if you need to pass a value = anonymous function call within onClick={}
-
-          <li key={move}>
-            <button onClick={() => jumpTo(move)}>{description}</button>
-          </li>
-        */}
           <span className="tasks__add-task" onClick={() => addTask(inputValue)}>
             <AddTask />
           </span>
         </div>
 
         <div className="tasks__todos">
-          {taskList.map((task, index) => (
-            <div key={index} className="tasks__todo">
+          {taskList.map((task, idx) => (
+            <div key={idx} className="tasks__todo">
               <div className="tasks__content">
-                <Checkbox id={`cbtest-${index}`} />
+                <Checkbox
+                  idx={idx}
+                  todoRefs={todoRefs}
+                  taskList={taskList}
+                  setTaskList={setTaskList}
+                  setTasksCount={setTasksCount}
+                />
                 <span>{task}</span>
               </div>
-              <div onClick={() => deleteTask(index)}>
-                <Trashcan />
-              </div>
+              <Trashcan
+                idx={idx}
+                todoRefs={todoRefs}
+                taskList={taskList}
+                setTaskList={setTaskList}
+              />
             </div>
           ))}
         </div>
       </div>
-      <div className="tasks__finished-tasks"></div>
+      <div className="tasks__finished-tasks">
+        <div className="tasks__score-title">Tasks Finished</div>
+        <div>
+          <img
+            src="/public/images/finished_task_icon/quest-icon-library.com.jpg"
+            width="100"
+            height="100"
+            alt=""
+          />
+        </div>
+        <div className="tasks__score">{tasksCount}</div>
+        <button className="tasks__reset-score" onClick={() => setTasksCount(0)}>
+          Reset
+        </button>
+      </div>
     </div>
   );
 };
