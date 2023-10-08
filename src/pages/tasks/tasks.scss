@@ -23,11 +23,16 @@
     gap: 1rem;
   }
 
+  &__highlight {
+    content: "";
+  }
+
   &__highlighter {
     display: inline-block;
     height: 100%;
     min-width: 0.5rem;
     background-color: #00b399;
+    transition: 0.5s;
   }
 
   &__icon-container {

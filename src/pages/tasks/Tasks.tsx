@@ -14,6 +14,7 @@ const Tasks = () => {
     "tasksCountDeserialized",
     0
   );
+  const [highlight, setHighlight] = useState(true);
 
   const todoRefs = useRef([]);
 
@@ -83,8 +84,15 @@ const Tasks = () => {
         <span className="tasks__task-category">Tasks</span>
 
         <div className="tasks__task-list">
-          <div className="tasks__highlight tasks__highlighter">l</div>
-          <div className="tasks__icon-container">
+          <div
+            className={`tasks__highlight ${
+              highlight ? "tasks__highlighter" : ""
+            }`}
+          ></div>
+          <div
+            className="tasks__icon-container"
+            onClick={() => setHighlight(true)}
+          >
             <img
               className="tasks__task-icon"
               src="/public/images/task_icon/quest-task1-freepik-David-Carapinha.png"
@@ -96,8 +104,15 @@ const Tasks = () => {
         <span className="tasks__history-category">History</span>
 
         <div className="tasks__task-history">
-          <div className="tasks__highlight tasks__highlighter">l</div>
-          <div className="tasks__icon-container">
+          <div
+            className={`tasks__highlight ${
+              highlight ? "" : "tasks__highlighter"
+            }`}
+          ></div>
+          <div
+            className="tasks__icon-container"
+            onClick={() => setHighlight(false)}
+          >
             <img
               className="tasks__history-icon"
               src="/public/images/history_icon/history-book-Freepik.png"
