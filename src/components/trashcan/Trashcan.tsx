@@ -1,3 +1,4 @@
+import { getUserLog } from "../../utils.js/getUserLog.tsx";
 import "./trashcan.scss";
 
 type DeleteTaskProps = {
@@ -5,18 +6,26 @@ type DeleteTaskProps = {
   todoRefs: Array<[HTMLDivElement | null, number]>;
   taskList: string[];
   setTaskList: React.Dispatch<React.SetStateAction<string[]>>;
+  setLogs: React.Dispatch<React.SetStateAction<string[]>>;
 };
+
 // Handle Delete Task
 const deleteTask = ({
   e,
   todoRefs,
   taskList,
   setTaskList,
+  setLogs,
 }: DeleteTaskProps) => {
-  const elemTarget = e.currentTarget;
-  const taskIdx = Number(elemTarget.id);
-  todoRefs[taskIdx][0]?.classList.remove("check-box-green");
+  // const elemTarget = e.currentTarget;
+  const taskIdx = Number(e.currentTarget.id);
+
+  const deleteLog = getUserLog(taskList[taskIdx], "deleted");
+
   const updatedTaskList = taskList.filter((task, i) => i !== taskIdx);
+
+  todoRefs[taskIdx][0]?.classList.remove("check-box-green");
+  setLogs((prevLogs) => [...prevLogs, deleteLog]);
   setTaskList(updatedTaskList);
 };
 
@@ -25,15 +34,24 @@ type PropsType = {
   todoRefs: Array<[HTMLDivElement | null, number]>; // Strict Type Checking
   taskList: string[];
   setTaskList: React.Dispatch<React.SetStateAction<string[]>>;
+  setLogs: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
-const Trashcan = ({ idx, todoRefs, taskList, setTaskList }: PropsType) => {
+const Trashcan = ({
+  idx,
+  todoRefs,
+  taskList,
+  setTaskList,
+  setLogs,
+}: PropsType) => {
   return (
     <>
       <div
         className="trash-box"
         id={idx.toString()}
-        onClick={(e) => deleteTask({ e, todoRefs, taskList, setTaskList })}
+        onClick={(e) =>
+          deleteTask({ e, todoRefs, taskList, setTaskList, setLogs })
+        }
       >
         <div className="trash"></div>
         <div className="trash-top"></div>

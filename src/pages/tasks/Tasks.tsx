@@ -9,7 +9,7 @@ import useLocalStorage from "use-local-storage";
 import "./Tasks.scss";
 
 type PropsType = {
-  setLogs: React.Dispatch<React.SetStateAction<Array>>;
+  setLogs: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 // const Tasks = ({ setViewTasks }: PropsType) => {
@@ -130,6 +130,7 @@ const Tasks = ({ setLogs }: PropsType) => {
                 todoRefs={todoRefs}
                 taskList={taskList}
                 setTaskList={setTaskList}
+                setLogs={setLogs}
               />
             </div>
           ))}
