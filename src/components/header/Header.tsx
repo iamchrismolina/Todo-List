@@ -8,8 +8,8 @@ const Header = () => {
         src="/public/images/brand_logo/todo-img-pngwing.com.png"
       />
       <div className="header__brand">
-        <h1 className="header__title">TODO LIST</h1>
-        <span className="header__desc">Create your list</span>
+        <h1 className="header__title">TaskGenius</h1>
+        <span className="header__desc">Create your task</span>
       </div>
     </header>
   );
