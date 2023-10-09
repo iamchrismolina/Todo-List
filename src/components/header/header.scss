@@ -11,11 +11,13 @@
     max-width: 100%;
     height: auto;
     object-fit: cover;
+    cursor: pointer;
   }
 
   &__brand {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
   }
 
   &__title {

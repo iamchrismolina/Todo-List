@@ -19,7 +19,6 @@ const deleteTask = ({
 }: DeleteTaskProps) => {
   // const elemTarget = e.currentTarget;
   const taskIdx = Number(e.currentTarget.id);
-
   const deleteLog = getUserLog(taskList[taskIdx], "deleted");
 
   const updatedTaskList = taskList.filter((task, i) => i !== taskIdx);

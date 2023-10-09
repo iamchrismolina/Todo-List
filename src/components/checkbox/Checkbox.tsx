@@ -30,9 +30,7 @@ const finishedTask = ({
       const updatedTaskList = taskList.filter((task, i) => i !== taskIdx);
       setTaskList(updatedTaskList);
       if (!(taskList[taskIdx] === "Ready For Some New Tasks? :D")) {
-        const task = taskList[taskIdx];
-        const action = "marked as completed";
-        const log = getUserLog(task, action);
+        const log = getUserLog(taskList[taskIdx], "marked as completed");
 
         setLogs((prevTasks) => [...prevTasks, log]);
         setTasksCount((prevCount) => prevCount + 1);

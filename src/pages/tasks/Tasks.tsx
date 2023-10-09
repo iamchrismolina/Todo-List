@@ -12,6 +12,8 @@ type PropsType = {
   setLogs: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
+// type SetLogsType = (logs: string[]) => void;
+
 // const Tasks = ({ setViewTasks }: PropsType) => {
 const Tasks = ({ setLogs }: PropsType) => {
   const [inputValue, setInputValue] = useState("");
@@ -78,9 +80,7 @@ const Tasks = ({ setLogs }: PropsType) => {
 
   // Handle Add Task
   const addTask = (inputValue) => {
-    const task = inputValue;
-    const action = "created";
-    const log = getUserLog(task, action);
+    const log = getUserLog(inputValue, "created");
 
     if (inputValue) {
       const updatedTaskList = [...taskList, inputValue];

@@ -1,14 +1,11 @@
-import { useState } from "react";
-// import { Link } from "react-router-dom";
 import "./sidebar.scss";
 
 type PropsType = {
   setViewTasks: React.Dispatch<React.SetStateAction<boolean>>;
+  highlight: boolean;
 };
 
-const Sidebar = ({ setViewTasks }: PropsType) => {
-  const [highlight, setHighlight] = useState(true);
-
+const Sidebar = ({ setViewTasks, highlight }: PropsType) => {
   return (
     <aside className="tasks__sidebar">
       <span className="tasks__task-category">Tasks</span>
@@ -27,7 +24,6 @@ const Sidebar = ({ setViewTasks }: PropsType) => {
             alt=""
             onClick={() => {
               setViewTasks(true);
-              setHighlight(true);
             }}
           />
         </div>
@@ -44,7 +40,6 @@ const Sidebar = ({ setViewTasks }: PropsType) => {
           className="tasks__icon-container"
           onClick={() => {
             setViewTasks(false);
-            setHighlight(false);
           }}
         >
           <img

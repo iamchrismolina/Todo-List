@@ -1,29 +1,37 @@
 import Tasks from "../../pages/tasks/Tasks.tsx";
 import History from "../../pages/history/History.tsx";
 import Sidebar from "../sidebar/Sidebar.tsx";
+import useLocalStorage from "use-local-storage";
+import { useState, useEffect } from "react";
 import "./main.scss";
-import { useState } from "react";
-// import useLocalStorage from "use-local-storage";
 
 const Main = () => {
-  const [viewTasks, setViewTasks] = useState<boolean>(true);
-  const logEntries = [
-    "2023-10-10 09:15:00 INFO: Task 'Buy groceries' created by user.",
-    "2023-10-10 10:30:00 INFO: Task 'Buy groceries' marked as completed by user.",
-    "2023-10-10 11:45:00 INFO: Task 'Finish report' deleted by user.",
-  ];
+  const [url, setUrl] = useLocalStorage("urlDeserialized", true);
+  const [viewTasks, setViewTasks] = useState<boolean>(url);
+  const [highlight, setHighlight] = useLocalStorage(
+    "highlightDeserialized",
+    true
+  );
+  const [logs, setLogs] = useLocalStorage("logsDeserialized", []);
 
-  const [logs, setLogs] = useState(logEntries);
+  const pageToLoad = `${viewTasks ? "/tasks" : "/history"}`;
+  const pageTitle = `${viewTasks ? "Tasks" : "History"}`;
+
+  useEffect(() => {
+    history.pushState(null, (document.title = pageTitle), pageToLoad);
+    setHighlight(viewTasks);
+    setUrl(viewTasks);
+  }, [viewTasks]);
 
   const pageContent = viewTasks ? (
     <Tasks setLogs={setLogs} />
   ) : (
-    <History logs={logs} />
+    <History logs={logs} setLogs={setLogs} />
   );
 
   const content = (
     <main>
-      <Sidebar setViewTasks={setViewTasks} />
+      <Sidebar setViewTasks={setViewTasks} highlight={highlight} />
       {pageContent}
     </main>
   );
