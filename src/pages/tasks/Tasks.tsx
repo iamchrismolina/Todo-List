@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-// import Sidebar from "../../components/sidebar/Sidebar.tsx";
 import Trashcan from "../../components/trashcan/Trashcan.tsx";
 import AddTask from "../../components/addtask/AddTask.tsx";
 import Checkbox from "../../components/checkbox/Checkbox.tsx";
@@ -12,14 +11,9 @@ type PropsType = {
   setLogs: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
-// type SetLogsType = (logs: string[]) => void;
-
-// const Tasks = ({ setViewTasks }: PropsType) => {
 const Tasks = ({ setLogs }: PropsType) => {
   const [inputValue, setInputValue] = useState("");
-  // const [taskList, setTaskList] = useState([]);
   const [taskList, setTaskList] = useLocalStorage("taskListDeserialized", []);
-  // const [tasksCount, setTasksCount] = useState(0);
   const [tasksCount, setTasksCount] = useLocalStorage(
     "tasksCountDeserialized",
     0
@@ -36,34 +30,6 @@ const Tasks = ({ setLogs }: PropsType) => {
   useEffect(() => {
     setTasksCount(tasksCount);
   }, []);
-
-  // Tasks Finished (Local Storage)
-  /*   useEffect(() => {
-    const tasksCountDeserialized = localStorage.getItem("tasksCountSerialized");
-    if (tasksCountDeserialized) {
-      setTasksCount((prevValue) => (prevValue ? tasksCountDeserialized : 0));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("tasksCountSerialized", JSON.stringify(tasksCount));
-  }, [tasksCount]); */
-
-  // Todo Lists (Local Storage)
-  /*   useEffect(() => {
-    const data = window.localStorage.getItem("taskList");
-    console.log("data " + data);
-    if (data) {
-      setTaskList(JSON.parse(data));
-    }
-  }, []);
-
-  useEffect(() => {
-    window.localStorage.setItem("taskList", JSON.stringify(taskList));
-    console.log("taskList " + taskList);
-  }, [taskList]); */
-
-  // Retrieving data from localStorage
 
   // Check Tasks Total
   const tasks = taskList.length;
@@ -92,8 +58,6 @@ const Tasks = ({ setLogs }: PropsType) => {
 
   return (
     <div className="tasks">
-      {/* <Sidebar setViewTasks={setViewTasks} /> */}
-
       <div className="tasks__task">
         <div className="tasks__add-container">
           <input

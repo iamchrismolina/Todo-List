@@ -17,7 +17,6 @@ const deleteTask = ({
   setTaskList,
   setLogs,
 }: DeleteTaskProps) => {
-  // const elemTarget = e.currentTarget;
   const taskIdx = Number(e.currentTarget.id);
   const deleteLog = getUserLog(taskList[taskIdx], "deleted");
 
