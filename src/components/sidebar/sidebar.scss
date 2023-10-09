@@ -1,0 +1,68 @@
+.tasks {
+  &__sidebar {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    max-width: 10rem;
+    flex: 1;
+    gap: 2rem 0;
+  }
+
+  &__task-list {
+    display: flex;
+    align-items: center;
+    min-height: 5rem;
+    max-height: 8rem;
+    gap: 1rem;
+  }
+
+  &__highlight {
+    content: "";
+  }
+
+  &__highlighter {
+    display: inline-block;
+    height: 100%;
+    min-width: 0.5rem;
+    background-color: #00b399;
+    transition: 0.5s;
+  }
+
+  &__icon-container {
+    min-width: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-basis: 8rem;
+  }
+
+  &__task-category {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  &__task-icon {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &__task-history {
+    display: flex;
+    align-items: center;
+    min-height: 5rem;
+    max-height: 8rem;
+    gap: 1rem;
+  }
+
+  &__history-icon {
+    width: object-fit;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &__history-category {
+    font-weight: bold;
+    font-size: 30px;
+  }
+}

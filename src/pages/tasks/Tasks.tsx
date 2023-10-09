@@ -1,20 +1,26 @@
 import { useState, useRef, useEffect } from "react";
+// import Sidebar from "../../components/sidebar/Sidebar.tsx";
 import Trashcan from "../../components/trashcan/Trashcan.tsx";
 import AddTask from "../../components/addtask/AddTask.tsx";
 import Checkbox from "../../components/checkbox/Checkbox.tsx";
+import TasksDone from "../../components/tasksdone/TasksDone.tsx";
 import useLocalStorage from "use-local-storage";
 import "./Tasks.scss";
 
-const Tasks = () => {
+type PropsType = {
+  setLogs: React.Dispatch<React.SetStateAction<Array>>;
+};
+
+// const Tasks = ({ setViewTasks }: PropsType) => {
+const Tasks = ({ setLogs }: PropsType) => {
   const [inputValue, setInputValue] = useState("");
   // const [taskList, setTaskList] = useState([]);
-  const [taskList, setTaskList] = useLocalStorage("taskList", []);
+  const [taskList, setTaskList] = useLocalStorage("taskListDeserialized", []);
   // const [tasksCount, setTasksCount] = useState(0);
   const [tasksCount, setTasksCount] = useLocalStorage(
     "tasksCountDeserialized",
     0
   );
-  const [highlight, setHighlight] = useState(true);
 
   const todoRefs = useRef([]);
 
@@ -80,48 +86,7 @@ const Tasks = () => {
 
   return (
     <div className="tasks">
-      <aside className="tasks__sidebar">
-        <span className="tasks__task-category">Tasks</span>
-
-        <div className="tasks__task-list">
-          <div
-            className={`tasks__highlight ${
-              highlight ? "tasks__highlighter" : ""
-            }`}
-          ></div>
-          <div
-            className="tasks__icon-container"
-            onClick={() => setHighlight(true)}
-          >
-            <img
-              className="tasks__task-icon"
-              src="/public/images/task_icon/quest-task1-freepik-David-Carapinha.png"
-              style={{ width: "5rem", height: "5rem" }}
-              alt=""
-            />
-          </div>
-        </div>
-        <span className="tasks__history-category">History</span>
-
-        <div className="tasks__task-history">
-          <div
-            className={`tasks__highlight ${
-              highlight ? "" : "tasks__highlighter"
-            }`}
-          ></div>
-          <div
-            className="tasks__icon-container"
-            onClick={() => setHighlight(false)}
-          >
-            <img
-              className="tasks__history-icon"
-              src="/public/images/history_icon/history-book-Freepik.png"
-              style={{ width: "5rem", height: "5rem" }}
-              alt=""
-            />
-          </div>
-        </div>
-      </aside>
+      {/* <Sidebar setViewTasks={setViewTasks} /> */}
 
       <div className="tasks__task">
         <div className="tasks__add-container">
@@ -150,6 +115,7 @@ const Tasks = () => {
                   taskList={taskList}
                   setTaskList={setTaskList}
                   setTasksCount={setTasksCount}
+                  setLogs={setLogs}
                 />
                 <span>{task}</span>
               </div>
@@ -164,21 +130,7 @@ const Tasks = () => {
         </div>
       </div>
 
-      <div className="tasks__finished-tasks">
-        <div className="tasks__score-title">Tasks Finished</div>
-        <div>
-          <img
-            src="/public/images/finished_task_icon/quest-icon-library.com.jpg"
-            width="100"
-            height="100"
-            alt=""
-          />
-        </div>
-        <div className="tasks__score">{tasksCount}</div>
-        <button className="tasks__reset-score" onClick={() => setTasksCount(0)}>
-          Reset
-        </button>
-      </div>
+      <TasksDone tasksCount={tasksCount} setTasksCount={setTasksCount} />
     </div>
   );
 };

@@ -1,10 +1,12 @@
 import "./checkbox.scss";
+import { getUserLog } from "../../utils.js/getUserLog.tsx";
 
 type FinishedTaskPropsType = {
   e: React.MouseEvent<HTMLDivElement>;
   taskList: string[];
   setTaskList: React.Dispatch<React.SetStateAction<string[]>>;
   setTasksCount: React.Dispatch<React.SetStateAction<number>>;
+  setLogs: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 // Handle Finished Task
@@ -15,6 +17,7 @@ const finishedTask = ({
   taskList,
   setTaskList,
   setTasksCount,
+  setLogs,
 }: FinishedTaskPropsType) => {
   const elemTarget = e.currentTarget;
   const taskIdx = Number(elemTarget.id);
@@ -27,6 +30,11 @@ const finishedTask = ({
       const updatedTaskList = taskList.filter((task, i) => i !== taskIdx);
       setTaskList(updatedTaskList);
       if (!(taskList[taskIdx] === "Ready For Some New Tasks? :D")) {
+        const action = "marked as completed";
+        const task = taskList[taskIdx];
+        const log = getUserLog(task, action);
+
+        setLogs((prevTasks) => [...prevTasks, log]);
         setTasksCount((prevCount) => prevCount + 1);
       }
     }, 500);
@@ -44,6 +52,7 @@ type PropsType = {
   taskList: string[];
   setTaskList: React.Dispatch<React.SetStateAction<string[]>>;
   setTasksCount: React.Dispatch<React.SetStateAction<number>>;
+  setLogs: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 const Checkbox = ({
@@ -52,6 +61,7 @@ const Checkbox = ({
   taskList,
   setTaskList,
   setTasksCount,
+  setLogs,
 }: PropsType) => {
   return (
     <div
@@ -60,7 +70,9 @@ const Checkbox = ({
       ref={(elem) => {
         todoRefs[idx] = [elem, idx];
       }}
-      onClick={(e) => finishedTask({ e, taskList, setTaskList, setTasksCount })}
+      onClick={(e) =>
+        finishedTask({ e, taskList, setTaskList, setTasksCount, setLogs })
+      }
     ></div>
   );
 };
