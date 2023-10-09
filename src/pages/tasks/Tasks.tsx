@@ -4,6 +4,7 @@ import Trashcan from "../../components/trashcan/Trashcan.tsx";
 import AddTask from "../../components/addtask/AddTask.tsx";
 import Checkbox from "../../components/checkbox/Checkbox.tsx";
 import TasksDone from "../../components/tasksdone/TasksDone.tsx";
+import { getUserLog } from "../../utils.js/getUserLog.tsx";
 import useLocalStorage from "use-local-storage";
 import "./Tasks.scss";
 
@@ -77,9 +78,14 @@ const Tasks = ({ setLogs }: PropsType) => {
 
   // Handle Add Task
   const addTask = (inputValue) => {
+    const task = inputValue;
+    const action = "created";
+    const log = getUserLog(task, action);
+
     if (inputValue) {
       const updatedTaskList = [...taskList, inputValue];
       setTaskList(updatedTaskList);
+      setLogs((prevTasks) => [...prevTasks, log]);
       setInputValue("");
     }
   };
