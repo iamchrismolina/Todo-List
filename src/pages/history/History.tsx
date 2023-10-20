@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import Logs from "../../components/logs/Logs.tsx";
+// import { useState, useEffect } from "react";
+import Logs from "../../components/reportlogs/Logs.tsx";
 import "./history.scss";
 
 type PropsType = {
   logs: Array<string>;
-  setLogs: React.Dispatch<React.StateAction<string[]>>;
+  setLogs: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 const History = ({ logs, setLogs }: PropsType) => {
