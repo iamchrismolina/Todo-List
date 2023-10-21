@@ -5,7 +5,7 @@ import Checkbox from "../../components/checkbox/Checkbox.tsx";
 import TasksDone from "../../components/tasksdone/TasksDone.tsx";
 import { getUserLog } from "../../utils.js/getUserLog.tsx";
 import useLocalStorage from "use-local-storage";
-import "./Tasks.scss";
+import "./tasks.scss";
 
 type PropsType = {
   // setLogs: React.Dispatch<React.SetStateAction<string[]>>;
