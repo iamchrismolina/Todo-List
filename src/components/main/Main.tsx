@@ -14,11 +14,12 @@ const Main = () => {
   );
   const [logs, setLogs] = useLocalStorage("logsDeserialized", []);
 
-  const pageToLoad = `${viewTasks ? "/tasks" : "/history"}`;
-  const pageTitle = `${viewTasks ? "Tasks" : "History"}`;
+  // const pageToLoad = `${viewTasks ? "/tasks" : "/history"}`;
+  // const pageTitle = `${viewTasks ? "Tasks" : "History"}`;
 
   useEffect(() => {
-    history.pushState(null, (document.title = pageTitle), pageToLoad);
+    // history.pushState(null, (document.title = pageTitle), pageToLoad);
+    // history.pushState(null, (document.title = pageTitle), "/Todo-Lists/");
     setHighlight(viewTasks);
     setUrl(viewTasks);
   }, [viewTasks]);
