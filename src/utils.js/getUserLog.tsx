@@ -1,4 +1,4 @@
-export const getUserLog = (task, action, user = "user") => {
+export const getUserLog = (task: string | React.ChangeEvent<HTMLInputElement>, action: string, user: string = "user") => {
   const currentDate = new Date();
 
   const year = currentDate.getFullYear();

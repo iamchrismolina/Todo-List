@@ -20,7 +20,7 @@ const deleteTask = ({
   const taskIdx = Number(e.currentTarget.id);
   const deleteLog = getUserLog(taskList[taskIdx], "deleted");
 
-  const updatedTaskList = taskList.filter((task, i) => i !== taskIdx);
+  const updatedTaskList = taskList.filter((_, i:number) => i !== taskIdx);
 
   todoRefs[taskIdx][0]?.classList.remove("check-box-green");
   setLogs((prevLogs) => [...prevLogs, deleteLog]);
