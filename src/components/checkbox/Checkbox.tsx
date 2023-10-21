@@ -27,7 +27,8 @@ const finishedTask = ({
 
     delTask = setTimeout(() => {
       elemTarget.classList.remove("check-box-green");
-      const updatedTaskList = taskList.filter((task, i) => i !== taskIdx);
+      // const updatedTaskList = taskList.filter((task, i) => i !== taskIdx);
+      const updatedTaskList = taskList.filter((_, i) => i !== taskIdx);
       setTaskList(updatedTaskList);
       if (!(taskList[taskIdx] === "Ready For Some New Tasks? :D")) {
         const log = getUserLog(taskList[taskIdx], "marked as completed");

@@ -8,18 +8,20 @@ import useLocalStorage from "use-local-storage";
 import "./Tasks.scss";
 
 type PropsType = {
-  setLogs: React.Dispatch<React.SetStateAction<string[]>>;
+  // setLogs: React.Dispatch<React.SetStateAction<string[]>>;
+  setLogs: any;
 };
 
 const Tasks = ({ setLogs }: PropsType) => {
   const [inputValue, setInputValue] = useState("");
-  const [taskList, setTaskList] = useLocalStorage("taskListDeserialized", []);
-  const [tasksCount, setTasksCount] = useLocalStorage(
+  // const [taskList, setTaskList] = useLocalStorage<(string | React.ChangeEvent<HTMLInputElement>)[]>("taskListDeserialized", []);
+  const [taskList, setTaskList] = useLocalStorage<any>("taskListDeserialized", []);
+  const [tasksCount, setTasksCount] = useLocalStorage<any>(
     "tasksCountDeserialized",
     0
   );
-
-  const todoRefs = useRef([]);
+  
+  const todoRefs: any = useRef([]);
 
   // Todo Lists
   useEffect(() => {
@@ -40,19 +42,21 @@ const Tasks = ({ setLogs }: PropsType) => {
   }
 
   // Handle User Input
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
   // Handle Add Task
-  const addTask = (inputValue) => {
+  const addTask = (inputValue: string | React.ChangeEvent<HTMLInputElement>) => {
     const log = getUserLog(inputValue, "created");
 
     if (inputValue) {
-      const updatedTaskList = [...taskList, inputValue];
+      const updatedTaskList: (string | React.ChangeEvent<HTMLInputElement>)[] = [...taskList, inputValue];
       setTaskList(updatedTaskList);
-      setLogs((prevTasks) => [...prevTasks, log]);
+      setLogs((prevTasks: string[]) => [...prevTasks, log]);
       setInputValue("");
+    } else {
+      return null;
     }
   };
 
@@ -76,7 +80,7 @@ const Tasks = ({ setLogs }: PropsType) => {
         </div>
 
         <div className="tasks__todos">
-          {taskList.map((task, idx) => (
+          {taskList.map((task: string, idx:  number) => (
             <div key={idx} className="tasks__todo">
               <div className="tasks__content">
                 <Checkbox

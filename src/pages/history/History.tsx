@@ -4,7 +4,8 @@ import "./history.scss";
 
 type PropsType = {
   logs: Array<string>;
-  setLogs: React.Dispatch<React.SetStateAction<string[]>>;
+  // setLogs: React.Dispatch<React.SetStateAction<string[]>>;
+  setLogs: any;
 };
 
 const History = ({ logs, setLogs }: PropsType) => {
