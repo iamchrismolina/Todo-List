@@ -12,7 +12,7 @@ const TasksDone = ({ tasksCount, setTasksCount }: PropsType) => {
         <div className="tasks__score-title">Tasks Finished</div>
         <div>
           <img
-            src="./public/images/finished-task-icon/finishedtask.jpg"
+            src="./public/images/finished-task-icon/finishedTask.jpg"
             width="100"
             height="100"
             alt=""
