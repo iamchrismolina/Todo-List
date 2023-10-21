@@ -19,7 +19,7 @@ const Sidebar = ({ setViewTasks, highlight }: PropsType) => {
         <div className="tasks__icon-container">
           <img
             className="tasks__task-icon"
-            src="./public/images/task-icon/task.png"
+            src="./images/task-icon/task.png"
             style={{ width: "5rem", height: "5rem" }}
             alt=""
             onClick={() => {
@@ -44,7 +44,7 @@ const Sidebar = ({ setViewTasks, highlight }: PropsType) => {
         >
           <img
             className="tasks__history-icon"
-            src="./public/images/history-icon/history.png"
+            src="./images/history-icon/history.png"
             style={{ width: "5rem", height: "5rem" }}
             alt=""
           />
