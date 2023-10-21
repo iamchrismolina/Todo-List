@@ -19,7 +19,6 @@ const Main = () => {
 
   useEffect(() => {
     // history.pushState(null, (document.title = pageTitle), pageToLoad);
-    // history.pushState(null, (document.title = pageTitle), "/Todo-Lists/");
     setHighlight(viewTasks);
     setUrl(viewTasks);
   }, [viewTasks]);
