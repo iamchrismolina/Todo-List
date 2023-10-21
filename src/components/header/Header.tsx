@@ -5,7 +5,7 @@ const Header = () => {
     <header className="header">
       <img
         className="header__img"
-        src="/public/images/brand_logo/todo-img-pngwing.com.png"
+        src="public/images/brand_logo/todo-img-pngwing.com.png"
       />
       <div className="header__brand">
         <h1 className="header__title">TaskGenius</h1>

@@ -19,7 +19,7 @@ const Sidebar = ({ setViewTasks, highlight }: PropsType) => {
         <div className="tasks__icon-container">
           <img
             className="tasks__task-icon"
-            src="/public/images/task_icon/quest-task1-freepik-David-Carapinha.png"
+            src="public/images/task_icon/quest-task1-freepik-David-Carapinha.png"
             style={{ width: "5rem", height: "5rem" }}
             alt=""
             onClick={() => {

@@ -10,7 +10,7 @@ const Logs = ({ setLogs }: LogsType) => {
       <div className="logs__container">
         <span className="logs__title">Logs</span>
         <img
-          src="/public/images/logs_logo/logs.png"
+          src="public/images/logs_logo/logs.png"
           width="120"
           height="120"
           alt="three logs with a flower on top - which implies Logs of the user"
