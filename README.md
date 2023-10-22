@@ -50,10 +50,6 @@ TaskGenius is designed to make task management a breeze. Here's how to get start
 
 If you found an issue or would like to submit an improvement to this project, please submit an issue using the issues tab above. If you would like to submit a PR with a fix, reference the issue you created!
 
-## Like TaskGenius?
-
-If you find TaskGenius helpful, consider supporting us by [buying us a coffee](https://www.buymeacoffee.com/yourusername). Your support keeps us motivated!
-
 ## Credits
 
 - TaskGenius was created with love by https://github.com/iamchrismolina.
