@@ -1,36 +1,66 @@
-# Todo-List
+# TaskGenius - Your Todo List App
 
-This Etch-A-Sketch is a Web-App where you can unleash your creativity & imagination and express it to the board. This web-app is a virtual representation of the real life etch-a-sketch toy.
+## A fully functional task management app to keep you organized and productive!
 
-![Markdown Logo](./Logo-Etch-A-Sketch.png)
+TaskGenius is your go-to todo list app for staying on top of your tasks and getting things done. With an intuitive and user-friendly interface, it helps you manage your tasks efficiently. It offers the following features:
 
-## How It's Made:
+- Add tasks to your todo list.
+- Check completed tasks
+- Remove tasks which you no longer need.
+- View task history or log of completed tasks.
+- Clear number progress of your finished tasks
+- Clear logs of your actions
 
-**Tech used:** HTML CSS/SASS/SCSS JS REACT TYPESCRIPT
+## How to Install TaskGenius
 
-HTML
-CSS
-JS
+To get TaskGenius up and running on your local machine, follow these steps:
 
-SASS/SCSS: I learned about sass/scss nesting where styling can be passed down from the parent down to its children and those outside will not be included. I also learned about "&__" where each consecutive nesting becomes easier since I mainly use BEM CSS naming convetion and therefore not have to type its parent block makes it easier to style. There's also loops as well as variable declaration in sass/scss and different ways of importing/exporting modules.
+1. Clone this project to your local machine using Git:
+   shell: git clone https://github.com/iamchrismolina/Todo-List.git
 
-React: I learned about useState where you can manage how and what components to render based on the value of the state. UseEffect which I mostly use to monitor values that is/are required to re-render upon detection of changes like LocalStorage for serialization & deserialization. UseRef and the idea behind react or how to think "in-react.js" and that's about how most of the states are on top like a spider web to manage the states & values. However, compared to JavaScript I find that react.js is limited or rather strict but it also allows for easier development as most of the low-code logic are abstracted thus making creation faster.
+Navigate to the project directory:
 
-TypeScript: 
+2. cd task-genius
+   Install project dependencies using npm (Node.js is required):
 
-## Optimizations:
+3. npm install
+   Start the development server to run TaskGenius:
 
-The design can be enhanced further to make it more alluring and modern. Functionalities that you like can be added like more control on the colors or adding an eraser.
+4. npm run dev
 
-## Lessons Learned:
+TaskGenius will be available at http://localhost:5173 (Vite Default Port) in your browser. You can now start managing your tasks with ease.
 
-I have learned about DOM manipulations where you change/add/remove the properties of HTML & CSS indirectly just through JavaScript. Using addEventListeners & selecting HTML elements through their IDs to change how they behave is very fascinating and insightful/eye-opening to me.
+## How to Use TaskGenius
 
-## My Projects:
+TaskGenius is designed to make task management a breeze. Here's how to get started:
 
-Rock-Paper-Scissors: https://github.com/iamchrismolina/rock-paper-scissoors
+1. **Add Tasks**: Add your tasks to the list. You can include details, due dates, and priorities.
 
-Landing-Page: https://github.com/iamchrismolina/landing-page
+2. **Check Tasks**: Mark tasks as completed when you're done with the task.
 
-## Credits:
+3. **Remove Tasks**: Remove tasks from your active list when you don't need or made a mistake or priority changes.
 
+4. **Task History**: Keep a log of all your added, deleted, completed tasks for reference and tracking.
+
+5. **Clear Progress**: Reset back your number of finished tasks to zero.
+
+6. **Clear History**: Erase all your logs from the list.
+
+## Found a Bug or Have Feedback?
+
+If you encounter any issues or have suggestions for improving TaskGenius, please let us know by [submitting an issue](#). We welcome your feedback and contributions.
+
+## Like TaskGenius?
+
+If you find TaskGenius helpful, consider supporting us by [buying us a coffee](https://www.buymeacoffee.com/yourusername). Your support keeps us motivated!
+
+## Credits
+
+- TaskGenius was created with love by [Your Name](https://github.com/yourgithubusername).
+- TaskGenius is built with [Technology Stack], [Technology Stack], and [Technology Stack].
+  
+- 'https://www.freepik.com/icon/scroll_4133573'. This cover has been designed using images from Freepik.com
+- 'https://www.flaticon.com/free-icon/history-book_1800174'. This cover has been designed using images from Flaticon.com 
+- 'https://www.freepik.com/icon/logs_2077046#fromView=resource_detail&position=1'. This cover has been designed using images from Freepik.com
+- 'https://www.pngwing.com/en/free-png-zqmha'. This cover has been designed using images from PNGWING.com
+- 'https://www.pngwing.com/en/free-png-ahffn'. This cover has been designed using images from PNGWING.com
