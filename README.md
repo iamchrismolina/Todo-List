@@ -1,3 +1,5 @@
+![TaskGenius Logo Showcased](https://github.com/iamchrismolina/Todo-List/blob/main/public/images/todo-list.png "TaskGenius")
+
 # TaskGenius - Your Todo List App
 
 ## A fully functional task management app to keep you organized and productive!
