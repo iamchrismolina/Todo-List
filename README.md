@@ -56,8 +56,8 @@ If you find TaskGenius helpful, consider supporting us by [buying us a coffee](h
 
 ## Credits
 
-- TaskGenius was created with love by [Your Name](https://github.com/yourgithubusername).
-- TaskGenius is built with [Technology Stack], [Technology Stack], and [Technology Stack].
+- TaskGenius was created with love by https://github.com/iamchrismolina.
+- TaskGenius is built with TypeScript, React, and Sass/Scss.
   
 - 'https://www.freepik.com/icon/scroll_4133573'. This cover has been designed using images from Freepik.com
 - 'https://www.flaticon.com/free-icon/history-book_1800174'. This cover has been designed using images from Flaticon.com 
