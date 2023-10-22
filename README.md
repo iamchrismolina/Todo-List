@@ -59,8 +59,8 @@ If you find TaskGenius helpful, consider supporting us by [buying us a coffee](h
 - TaskGenius was created with love by https://github.com/iamchrismolina.
 - TaskGenius is built with TypeScript, React, and Sass/Scss.
   
-- 'https://www.freepik.com/icon/scroll_4133573'. This cover has been designed using images from Freepik.com
-- 'https://www.flaticon.com/free-icon/history-book_1800174'. This cover has been designed using images from Flaticon.com 
-- 'https://www.freepik.com/icon/logs_2077046#fromView=resource_detail&position=1'. This cover has been designed using images from Freepik.com
-- 'https://www.pngwing.com/en/free-png-zqmha'. This cover has been designed using images from PNGWING.com
-- 'https://www.pngwing.com/en/free-png-ahffn'. This cover has been designed using images from PNGWING.com
+- 'https://www.freepik.com/icon/scroll_4133573'. This project has been designed using images from Freepik.com
+- 'https://www.flaticon.com/free-icon/history-book_1800174'. This project has been designed using images from Flaticon.com 
+- 'https://www.freepik.com/icon/logs_2077046#fromView=resource_detail&position=1'. This project has been designed using images from Freepik.com
+- 'https://www.pngwing.com/en/free-png-zqmha'. This project has been designed using images from PNGWING.com
+- 'https://www.pngwing.com/en/free-png-ahffn'. This project has been designed using images from PNGWING.com
