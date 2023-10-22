@@ -48,7 +48,7 @@ TaskGenius is designed to make task management a breeze. Here's how to get start
 
 ## Found a Bug or Have Feedback?
 
-If you encounter any issues or have suggestions for improving TaskGenius, please let us know by [submitting an issue](#). We welcome your feedback and contributions.
+If you found an issue or would like to submit an improvement to this project, please submit an issue using the issues tab above. If you would like to submit a PR with a fix, reference the issue you created!
 
 ## Like TaskGenius?
 
